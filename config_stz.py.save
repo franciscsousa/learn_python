@@ -1,0 +1,30 @@
+import sys
+import csv
+
+#Passos do software
+
+
+def procurar_dados(arq, pesquisa):
+	with open(arq, mode='r', encoding='utf-8') as arquivo:
+		dados= csv.DictReader(arquivo, delimiter=';')
+		for dado in dados:
+IP			if dado["Serial"]  == pesquisa:
+				return dado["host"]
+		return False
+
+
+def main():
+	###
+	#1) Coletar código do totem
+	serial=input('Digite o serial do totem: ')
+	loja=procurar_dados('tabela.csv', serial)
+	print (loja)
+	
+	#2) Verificar se já existe configuração salva deste totem
+	#3) Caso sim, resgatar as configurações
+	#4) Caso não, gerar novas configurações e gravar
+	#5) Salvar os arquivos de configurações do software.
+	###
+
+if __name__ == '__main__':
+	sys.exit(main())
